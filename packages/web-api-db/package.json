@@ -1,0 +1,18 @@
+{
+  "name": "@attebury/topogram-starter-web-api-db",
+  "version": "0.1.0",
+  "description": "SvelteKit, Hono, and Postgres Topogram starter.",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "files": [
+    "topogram-template.json",
+    "topogram",
+    "topogram.project.json",
+    "implementation",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

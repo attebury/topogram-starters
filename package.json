@@ -1,0 +1,11 @@
+{
+  "name": "topogram-starters",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "pack:check": "node ./scripts/verify-starter-packages.mjs"
+  }
+}

@@ -1,0 +1,93 @@
+name: Publish Starter Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Optional package version. When supplied, every package must match it."
+        required: false
+        type: string
+      dist_tag:
+        description: "npm dist-tag"
+        required: true
+        default: "latest"
+        type: string
+      create_tag:
+        description: "Create and push topogram-starters-v<version> after publishing"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  publish:
+    name: Publish starter packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+        with:
+          repository: attebury/topogram
+          ref: topogram-v0.2.42
+          path: topogram-source
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: "@attebury"
+      - name: Check release versions
+        env:
+          EXPECTED_VERSION: ${{ inputs.version }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const expected = process.env.EXPECTED_VERSION || "";
+          const packages = fs.readdirSync("./packages").sort();
+          const versions = new Set();
+          for (const name of packages) {
+            const pkg = JSON.parse(fs.readFileSync(`./packages/${name}/package.json`, "utf8"));
+            versions.add(pkg.version);
+            if (expected && pkg.version !== expected) {
+              throw new Error(`${pkg.name} version ${pkg.version} does not match requested ${expected}`);
+            }
+          }
+          if (versions.size !== 1) {
+            throw new Error(`Starter packages must share one version, found ${[...versions].join(", ")}`);
+          }
+          NODE
+      - name: Pack Topogram CLI from source
+        id: topogram_cli
+        run: |
+          npm --prefix ./topogram-source/engine ci
+          mkdir -p "$RUNNER_TEMP/topogram-cli"
+          PACK_NAME="$(cd ./topogram-source/engine && npm pack --silent --pack-destination "$RUNNER_TEMP/topogram-cli" | tail -n 1)"
+          echo "tarball=$RUNNER_TEMP/topogram-cli/$PACK_NAME" >> "$GITHUB_OUTPUT"
+      - name: Verify starter packages
+        env:
+          TOPOGRAM_CLI_PACKAGE_SPEC: ${{ steps.topogram_cli.outputs.tarball }}
+        run: npm run pack:check
+      - name: Publish packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for package_dir in packages/*; do
+            npm publish "$package_dir" --tag "${{ inputs.dist_tag }}"
+          done
+      - name: Create release tag
+        if: ${{ inputs.create_tag }}
+        run: |
+          VERSION="$(node -p "require('./packages/hello-web/package.json').version")"
+          TAG="topogram-starters-v$VERSION"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "Release tag already exists: $TAG" >&2
+            exit 1
+          fi
+          git tag "$TAG"
+          git push origin "$TAG"

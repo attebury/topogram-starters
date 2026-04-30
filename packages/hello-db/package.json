@@ -1,0 +1,17 @@
+{
+  "name": "@attebury/topogram-starter-hello-db",
+  "version": "0.1.0",
+  "description": "SQLite database lifecycle Topogram starter.",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "files": [
+    "topogram-template.json",
+    "topogram",
+    "topogram.project.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

@@ -9,7 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.50";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.51";
 const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
   return fs.statSync(path.join(packagesRoot, name)).isDirectory();
@@ -68,8 +68,18 @@ for (const packageDirName of packageNames) {
   const starterPkg = JSON.parse(fs.readFileSync(path.join(starterRoot, "package.json"), "utf8"));
   assert.equal(starterPkg.scripts?.doctor, "topogram doctor", `${packageDirName} should expose npm run doctor`);
   assert.equal(starterPkg.scripts?.["source:status"], "topogram source status", `${packageDirName} should expose npm run source:status`);
+  assert.equal(starterPkg.scripts?.["template:detach"], "topogram template detach", `${packageDirName} should expose npm run template:detach`);
+  assert.equal(starterPkg.scripts?.["template:detach:dry-run"], "topogram template detach --dry-run", `${packageDirName} should expose npm run template:detach:dry-run`);
   run("npm", ["run", "doctor"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "source:status"], { cwd: starterRoot, quiet: true });
+  const detachDryRun = run(topogramBin, ["template", "detach", starterRoot, "--dry-run", "--json"], { cwd: starterRoot, quiet: true });
+  const detachPayload = JSON.parse(detachDryRun.stdout);
+  assert.equal(detachPayload.detached, true, `${packageDirName} detach dry-run should plan detach`);
+  assert.equal(detachPayload.dryRun, true, `${packageDirName} detach dry-run should not write`);
+  assert.equal(detachPayload.plannedRemovals.some((filePath) => filePath.endsWith(".topogram-template-files.json")), true, `${packageDirName} detach dry-run should remove template baseline`);
+  if (manifest.includesExecutableImplementation) {
+    assert.equal(detachPayload.implementationTrust.retained, true, `${packageDirName} should retain implementation trust`);
+  }
   run("npm", ["run", "check"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "generate"], { cwd: starterRoot, quiet: true });
 }

@@ -9,7 +9,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.42";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.43";
+const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
   return fs.statSync(path.join(packagesRoot, name)).isDirectory();
 }).sort();
@@ -59,7 +60,7 @@ for (const packageDirName of packageNames) {
   run(topogramBin, ["new", starterRoot, "--template", tarballPath], {
     cwd: consumerRoot,
     env: {
-      TOPOGRAM_CLI_PACKAGE_SPEC: cliPackageSpec
+      TOPOGRAM_CLI_PACKAGE_SPEC: starterCliPackageSpec
     },
     quiet: true
   });
@@ -96,4 +97,12 @@ function run(command, args, options = {}) {
     process.stderr.write(result.stderr);
   }
   return result;
+}
+
+function starterDependencySpecFor(packageSpec) {
+  const prefix = "@attebury/topogram@";
+  if (packageSpec.startsWith(prefix)) {
+    return packageSpec.slice(prefix.length);
+  }
+  return packageSpec;
 }

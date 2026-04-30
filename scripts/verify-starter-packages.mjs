@@ -9,7 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.44";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.45";
 const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
   return fs.statSync(path.join(packagesRoot, name)).isDirectory();
@@ -65,6 +65,9 @@ for (const packageDirName of packageNames) {
     quiet: true
   });
   run("npm", ["install"], { cwd: starterRoot, quiet: true });
+  const starterPkg = JSON.parse(fs.readFileSync(path.join(starterRoot, "package.json"), "utf8"));
+  assert.equal(starterPkg.scripts?.doctor, "topogram doctor", `${packageDirName} should expose npm run doctor`);
+  run("npm", ["run", "doctor"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "check"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "generate"], { cwd: starterRoot, quiet: true });
 }

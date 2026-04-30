@@ -24,4 +24,4 @@ npm run pack:check
 
 The smoke test packs each starter, runs `topogram template check`, creates a
 disposable project with `topogram new --template <tarball>`, then runs
-`npm run check` and `npm run generate` in that project.
+`npm run doctor`, `npm run check`, and `npm run generate` in that project.

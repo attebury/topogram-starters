@@ -9,7 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.43";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.44";
 const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
   return fs.statSync(path.join(packagesRoot, name)).isDirectory();

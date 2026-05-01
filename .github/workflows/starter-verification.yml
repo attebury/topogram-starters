@@ -25,6 +25,8 @@ jobs:
           node-version: 24
           registry-url: https://npm.pkg.github.com
           scope: "@attebury"
+      - name: Check catalog version helper
+        run: npm run catalog:update -- tests/fixtures/topograms.catalog.json --check
       - name: Verify starter packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,6 @@
 {
   "name": "@attebury/topogram-starter-hello-web",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vanilla HTML/CSS/JS Topogram starter with two pages and one workflow.",
   "license": "UNLICENSED",
   "private": false,

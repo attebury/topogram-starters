@@ -1,6 +1,6 @@
 {
   "id": "@attebury/topogram-starter-hello-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "kind": "starter",
   "description": "Hono API-only starter.",
   "topogramVersion": "0.1",

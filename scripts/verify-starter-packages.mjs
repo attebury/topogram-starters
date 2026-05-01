@@ -9,7 +9,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.58";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.59";
+const expectedCliVersion = process.env.EXPECTED_TOPOGRAM_CLI_VERSION || expectedVersionFromPackageSpec(cliPackageSpec);
 const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
   return fs.statSync(path.join(packagesRoot, name)).isDirectory();
@@ -34,6 +35,15 @@ run("npm", ["install", cliPackageSpec], { cwd: consumerRoot, quiet: true });
 
 const topogramBin = path.join(consumerRoot, "node_modules", ".bin", process.platform === "win32" ? "topogram.cmd" : "topogram");
 assert.equal(fs.existsSync(topogramBin), true, `Expected topogram binary at ${topogramBin}`);
+const version = run(topogramBin, ["version", "--json"], { cwd: consumerRoot, quiet: true });
+const versionPayload = JSON.parse(version.stdout);
+assert.equal(versionPayload.packageName, "@attebury/topogram");
+if (expectedCliVersion) {
+  assert.equal(versionPayload.version, expectedCliVersion);
+}
+assert.equal(typeof versionPayload.executablePath, "string");
+assert.equal(typeof versionPayload.nodeVersion, "string");
+console.log(`Using Topogram CLI ${versionPayload.version} from ${versionPayload.executablePath}`);
 
 for (const packageDirName of packageNames) {
   const packageRoot = path.join(packagesRoot, packageDirName);
@@ -121,4 +131,13 @@ function starterDependencySpecFor(packageSpec) {
     return packageSpec.slice(prefix.length);
   }
   return packageSpec;
+}
+
+function expectedVersionFromPackageSpec(packageSpec) {
+  const prefix = "@attebury/topogram@";
+  if (!packageSpec.startsWith(prefix)) {
+    return null;
+  }
+  const version = packageSpec.slice(prefix.length);
+  return /^\d+\.\d+\.\d+/.test(version) ? version : null;
 }

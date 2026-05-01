@@ -32,11 +32,6 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/checkout@v6
-        with:
-          repository: attebury/topogram
-          ref: topogram-v0.2.57
-          path: topogram-source
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -62,16 +57,11 @@ jobs:
             throw new Error(`Starter packages must share one version, found ${[...versions].join(", ")}`);
           }
           NODE
-      - name: Pack Topogram CLI from source
-        id: topogram_cli
-        run: |
-          npm --prefix ./topogram-source/engine ci
-          mkdir -p "$RUNNER_TEMP/topogram-cli"
-          PACK_NAME="$(cd ./topogram-source/engine && npm pack --silent --pack-destination "$RUNNER_TEMP/topogram-cli" | tail -n 1)"
-          echo "tarball=$RUNNER_TEMP/topogram-cli/$PACK_NAME" >> "$GITHUB_OUTPUT"
       - name: Verify starter packages
         env:
-          TOPOGRAM_CLI_PACKAGE_SPEC: ${{ steps.topogram_cli.outputs.tarball }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOPOGRAM_CLI_PACKAGE_SPEC: "@attebury/topogram@0.2.59"
+          EXPECTED_TOPOGRAM_CLI_VERSION: "0.2.59"
         run: npm run pack:check
       - name: Publish packages
         env:

@@ -76,3 +76,22 @@ The smoke test packs each starter, runs `topogram template check`, creates a
 disposable project with `topogram new --template <tarball>`, then runs
 `npm run doctor`, `npm run source:status`, `npm run check`, and `npm run generate`
 in that project.
+
+## Catalog Rollout
+
+After publishing a starter package version, update the catalog from this repo
+instead of hand-editing every starter entry:
+
+```bash
+npm run catalog:update -- ../topograms/topograms.catalog.json
+```
+
+The script reads every local `packages/*/package.json`, verifies the matching
+`topogram-template.json` versions, requires all starter packages to share one
+version, and updates only matching `@attebury/topogram-starter-*` entries in the
+given catalog file. Use `--check` when you only want to verify the catalog is
+already aligned:
+
+```bash
+npm run catalog:update -- ../topograms/topograms.catalog.json --check
+```

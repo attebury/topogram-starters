@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "catalog:update": "node ./scripts/update-catalog-versions.mjs",
     "pack:check": "node ./scripts/verify-starter-packages.mjs"
   }
 }

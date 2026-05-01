@@ -28,6 +28,6 @@ jobs:
       - name: Verify starter packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TOPOGRAM_CLI_PACKAGE_SPEC: "@attebury/topogram@0.2.60"
-          EXPECTED_TOPOGRAM_CLI_VERSION: "0.2.60"
+          TOPOGRAM_CLI_PACKAGE_SPEC: "@attebury/topogram@0.2.61"
+          EXPECTED_TOPOGRAM_CLI_VERSION: "0.2.61"
         run: npm run pack:check

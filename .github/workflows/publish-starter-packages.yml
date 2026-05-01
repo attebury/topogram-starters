@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           repository: attebury/topogram
-          ref: topogram-v0.2.54
+          ref: topogram-v0.2.55
           path: topogram-source
       - uses: actions/setup-node@v6
         with:

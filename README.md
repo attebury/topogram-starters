@@ -8,13 +8,25 @@ aliases resolve to these versioned packages.
 
 ## Packages
 
-| Package | Catalog ID | Stack |
-| --- | --- | --- |
-| `@attebury/topogram-starter-hello-web` | `hello-web` | Vanilla HTML/CSS/JS |
-| `@attebury/topogram-starter-hello-api` | `hello-api` | Hono |
-| `@attebury/topogram-starter-hello-db` | `hello-db` | SQLite |
-| `@attebury/topogram-starter-web-api` | `web-api` | React + Express |
-| `@attebury/topogram-starter-web-api-db` | `web-api-db` | SvelteKit + Hono + Postgres |
+| Package | Catalog ID | Surfaces | Stack | Start Here When |
+| --- | --- | --- | --- | --- |
+| `@attebury/topogram-starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS | You want the smallest starter and no executable implementation trust step. |
+| `@attebury/topogram-starter-hello-api` | `hello-api` | api | Hono | You want to model and generate an API surface only. |
+| `@attebury/topogram-starter-hello-db` | `hello-db` | database | SQLite | You want database lifecycle output without web/API code. |
+| `@attebury/topogram-starter-web-api` | `web-api` | web, api | React + Express | You want a generated web/API app without a database. |
+| `@attebury/topogram-starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres | You want the full-stack starter and accept the heavier runtime setup. |
+
+Use the CLI catalog view to choose a starter:
+
+```bash
+topogram new --list-templates
+topogram new --list-templates --json
+topogram catalog show hello-web
+```
+
+The JSON list includes `surfaces`, `generators`, `stack`,
+`includesExecutableImplementation`, and `recommendedCommand`; agents should use
+those fields instead of scraping this README.
 
 ## Verify
 

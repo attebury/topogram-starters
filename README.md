@@ -28,6 +28,44 @@ The JSON list includes `surfaces`, `generators`, `stack`,
 `includesExecutableImplementation`, and `recommendedCommand`; agents should use
 those fields instead of scraping this README.
 
+## Starter Contracts
+
+All starter packages are intentionally small. They are not demos; they are
+starting points that prove a topology, generator combination, and ownership
+mode.
+
+- `hello-web` creates a generated vanilla web app with two pages and one simple
+  workflow. It has no API, database, or executable implementation provider.
+- `hello-api` creates a generated Hono API surface only. Use it when the first
+  artifact you need is an API contract and runtime shell.
+- `hello-db` creates SQLite database lifecycle output only. Use it to start
+  database modeling without web/API code.
+- `web-api` creates a generated React + Express app with explicit web-to-API
+  wiring and no database dependency.
+- `web-api-db` creates a generated SvelteKit + Hono + Postgres app with
+  explicit web-to-API and API-to-database wiring.
+
+Executable starters copy `implementation/` provider code into the generated
+project and record local trust. `topogram new` does not execute that code, but
+`topogram generate` may load it later; review the copied implementation before
+refreshing trust after edits.
+
+## User Flow
+
+```bash
+topogram template list
+topogram catalog show hello-web
+topogram new ./my-app --template hello-web
+cd ./my-app
+npm install
+npm run doctor
+npm run check
+npm run generate
+```
+
+Choose `web-api`, `web-api-db`, `hello-api`, or `hello-db` by swapping the
+catalog id in the `catalog show` and `new` commands.
+
 ## Verify
 
 ```bash

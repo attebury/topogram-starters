@@ -2,9 +2,9 @@
 
 Package-backed starter templates for Topogram.
 
-These packages mirror the built-in starters shipped with the `@attebury/topogram`
-CLI. Built-ins remain available for offline first use; these packages are the
-shared catalog-backed starter path.
+These packages are the shared catalog-backed starter path for Topogram. The
+`@attebury/topogram` CLI does not bundle product starter templates; catalog
+aliases resolve to these versioned packages.
 
 ## Packages
 

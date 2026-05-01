@@ -1,9 +1,9 @@
 {
   "version": "0.1",
   "implementation": {
-    "id": "web-api-db-template",
+    "id": "web-api-template",
     "module": "./implementation/index.js",
-    "export": "WEB_API_DB_IMPLEMENTATION"
+    "export": "WEB_API_IMPLEMENTATION"
   },
   "outputs": {
     "app": {

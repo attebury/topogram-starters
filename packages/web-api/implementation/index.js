@@ -19,8 +19,8 @@ import {
   renderHelloRoutes
 } from "./web/renderers.js";
 
-export const WEB_API_DB_IMPLEMENTATION = {
-  exampleId: "web-api-db-template",
+export const WEB_API_IMPLEMENTATION = {
+  exampleId: "web-api-template",
   exampleRoot: "/topogram",
   backend: {
     reference: HELLO_BACKEND_REFERENCE,
@@ -50,4 +50,4 @@ export const WEB_API_DB_IMPLEMENTATION = {
   }
 };
 
-export default WEB_API_DB_IMPLEMENTATION;
+export default WEB_API_IMPLEMENTATION;

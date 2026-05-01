@@ -9,7 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesRoot = path.join(root, "packages");
 const workRoot = path.join(root, ".tmp", "starter-packages");
 const npmCache = path.join(root, ".tmp", "npm-cache");
-const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || "@attebury/topogram@0.2.61";
+const cliPackageSpec = process.env.TOPOGRAM_CLI_PACKAGE_SPEC || defaultCliPackageSpec();
 const expectedCliVersion = process.env.EXPECTED_TOPOGRAM_CLI_VERSION || expectedVersionFromPackageSpec(cliPackageSpec);
 const starterCliPackageSpec = starterDependencySpecFor(cliPackageSpec);
 const packageNames = fs.readdirSync(packagesRoot).filter((name) => {
@@ -140,4 +140,13 @@ function expectedVersionFromPackageSpec(packageSpec) {
   }
   const version = packageSpec.slice(prefix.length);
   return /^\d+\.\d+\.\d+/.test(version) ? version : null;
+}
+
+function defaultCliPackageSpec() {
+  const versionPath = path.join(root, "topogram-cli.version");
+  if (!fs.existsSync(versionPath)) {
+    return "@attebury/topogram@latest";
+  }
+  const version = fs.readFileSync(versionPath, "utf8").trim();
+  return version ? `@attebury/topogram@${version}` : "@attebury/topogram@latest";
 }

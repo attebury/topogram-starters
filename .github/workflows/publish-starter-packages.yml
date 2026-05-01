@@ -60,9 +60,11 @@ jobs:
       - name: Verify starter packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TOPOGRAM_CLI_PACKAGE_SPEC: "@attebury/topogram@0.2.61"
-          EXPECTED_TOPOGRAM_CLI_VERSION: "0.2.61"
-        run: npm run pack:check
+        run: |
+          TOPOGRAM_CLI_VERSION="$(cat topogram-cli.version)"
+          TOPOGRAM_CLI_PACKAGE_SPEC="@attebury/topogram@$TOPOGRAM_CLI_VERSION" \
+          EXPECTED_TOPOGRAM_CLI_VERSION="$TOPOGRAM_CLI_VERSION" \
+            npm run pack:check
       - name: Publish packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

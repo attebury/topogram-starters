@@ -18,8 +18,9 @@
         "type": "api",
         "projection": "proj_api",
         "generator": {
-          "id": "topogram/express",
-          "version": "1"
+          "id": "@attebury/topogram-generator-express-api",
+          "version": "1",
+          "package": "@attebury/topogram-generator-express-api"
         },
         "port": 3000
       },
@@ -28,8 +29,9 @@
         "type": "web",
         "projection": "proj_ui_web",
         "generator": {
-          "id": "topogram/react",
-          "version": "1"
+          "id": "@attebury/topogram-generator-react-web",
+          "version": "1",
+          "package": "@attebury/topogram-generator-react-web"
         },
         "port": 5173,
         "api": "app_api"

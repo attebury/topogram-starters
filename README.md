@@ -11,10 +11,10 @@ aliases resolve to these versioned packages.
 | Package | Catalog ID | Surfaces | Stack | Start Here When |
 | --- | --- | --- | --- | --- |
 | `@attebury/topogram-starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@attebury/topogram-generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
-| `@attebury/topogram-starter-hello-api` | `hello-api` | api | Hono | You want to model and generate an API surface only. |
-| `@attebury/topogram-starter-hello-db` | `hello-db` | database | SQLite | You want database lifecycle output without web/API code. |
-| `@attebury/topogram-starter-web-api` | `web-api` | web, api | React + Express | You want a generated web/API app without a database. |
-| `@attebury/topogram-starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres | You want the full-stack starter and accept the heavier runtime setup. |
+| `@attebury/topogram-starter-hello-api` | `hello-api` | api | Hono via `@attebury/topogram-generator-hono-api` | You want to model and generate an API surface only. |
+| `@attebury/topogram-starter-hello-db` | `hello-db` | database | SQLite via `@attebury/topogram-generator-sqlite-db` | You want database lifecycle output without web/API code. |
+| `@attebury/topogram-starter-web-api` | `web-api` | web, api | React + Express via package generators | You want a generated web/API app without a database. |
+| `@attebury/topogram-starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres via package generators | You want the full-stack starter and accept the heavier runtime setup. |
 
 Use the CLI catalog view to choose a starter:
 

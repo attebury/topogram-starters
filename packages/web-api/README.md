@@ -13,7 +13,7 @@ topogram new ./web-api --template @attebury/topogram-starter-web-api
 
 - Catalog id: `web-api`
 - Surfaces: `web`, `api`
-- Generators: `topogram/react`, `topogram/express`
+- Generators: `@attebury/topogram-generator-react-web`, `@attebury/topogram-generator-express-api`
 - Runtime stack: React + Express
 - Executable implementation: yes
 - Purpose: generated web/API starter with explicit web-to-API wiring and no database dependency.

@@ -1,6 +1,6 @@
 {
   "name": "@attebury/topogram-starter-hello-db",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "SQLite database lifecycle Topogram starter.",
   "license": "UNLICENSED",
   "private": false,
@@ -11,6 +11,9 @@
     "topogram.project.json",
     "README.md"
   ],
+  "devDependencies": {
+    "@attebury/topogram-generator-sqlite-db": "^0.1.0"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }

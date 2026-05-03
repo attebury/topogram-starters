@@ -10,7 +10,7 @@ topogram new ./hello-db --template @attebury/topogram-starter-hello-db
 
 - Catalog id: `hello-db`
 - Surfaces: `database`
-- Generator: `topogram/sqlite`
+- Generator: `@attebury/topogram-generator-sqlite-db`
 - Runtime stack: SQLite
 - Executable implementation: no
 - Purpose: database lifecycle starter for schema/migration output without web or API code.

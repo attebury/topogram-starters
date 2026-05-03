@@ -13,7 +13,7 @@ topogram new ./web-api-db --template @attebury/topogram-starter-web-api-db
 
 - Catalog id: `web-api-db`
 - Surfaces: `web`, `api`, `database`
-- Generators: `topogram/sveltekit`, `topogram/hono`, `topogram/postgres`
+- Generators: `@attebury/topogram-generator-sveltekit-web`, `@attebury/topogram-generator-hono-api`, `@attebury/topogram-generator-postgres-db`
 - Runtime stack: SvelteKit + Hono + Postgres
 - Executable implementation: yes
 - Purpose: full-stack starter with explicit web-to-API and API-to-database wiring.

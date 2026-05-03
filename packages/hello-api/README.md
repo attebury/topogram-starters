@@ -10,7 +10,7 @@ topogram new ./hello-api --template @attebury/topogram-starter-hello-api
 
 - Catalog id: `hello-api`
 - Surfaces: `api`
-- Generator: `topogram/hono`
+- Generator: `@attebury/topogram-generator-hono-api`
 - Runtime stack: Hono
 - Executable implementation: no
 - Purpose: API-only starter for modeling endpoint contracts without web or database output.

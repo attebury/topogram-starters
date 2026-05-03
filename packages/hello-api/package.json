@@ -1,6 +1,6 @@
 {
   "name": "@attebury/topogram-starter-hello-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Hono API-only Topogram starter.",
   "license": "UNLICENSED",
   "private": false,
@@ -11,6 +11,9 @@
     "topogram.project.json",
     "README.md"
   ],
+  "devDependencies": {
+    "@attebury/topogram-generator-hono-api": "^0.1.0"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }

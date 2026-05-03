@@ -1,6 +1,6 @@
 {
   "id": "@attebury/topogram-starter-web-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "kind": "starter",
   "description": "Neutral Hello-resource React/Express web/API starter.",
   "topogramVersion": "0.1",

@@ -1,6 +1,6 @@
 {
   "id": "@attebury/topogram-starter-hello-web",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "kind": "starter",
   "description": "Vanilla HTML/CSS/JS starter with two pages and one workflow.",
   "topogramVersion": "0.1",

@@ -10,7 +10,7 @@ topogram new ./hello-web --template @attebury/topogram-starter-hello-web
 
 - Catalog id: `hello-web`
 - Surfaces: `web`
-- Generator: `topogram/vanilla-web`
+- Generator: `@attebury/topogram-generator-vanilla-web`
 - Runtime stack: vanilla HTML/CSS/JS
 - Executable implementation: no
 - Purpose: smallest generated web starter with two pages and one workflow.

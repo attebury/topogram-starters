@@ -5,7 +5,7 @@
       "id": "hello-web",
       "kind": "template",
       "package": "@attebury/topogram-starter-hello-web",
-      "defaultVersion": "0.1.2",
+      "defaultVersion": "0.1.3",
       "description": "Fixture hello-web starter entry.",
       "tags": ["fixture", "starter", "web"],
       "trust": {
@@ -17,7 +17,7 @@
       "id": "hello-api",
       "kind": "template",
       "package": "@attebury/topogram-starter-hello-api",
-      "defaultVersion": "0.1.2",
+      "defaultVersion": "0.1.3",
       "description": "Fixture hello-api starter entry.",
       "tags": ["fixture", "starter", "api"],
       "trust": {
@@ -29,7 +29,7 @@
       "id": "hello-db",
       "kind": "template",
       "package": "@attebury/topogram-starter-hello-db",
-      "defaultVersion": "0.1.2",
+      "defaultVersion": "0.1.3",
       "description": "Fixture hello-db starter entry.",
       "tags": ["fixture", "starter", "database"],
       "trust": {
@@ -41,7 +41,7 @@
       "id": "web-api",
       "kind": "template",
       "package": "@attebury/topogram-starter-web-api",
-      "defaultVersion": "0.1.2",
+      "defaultVersion": "0.1.3",
       "description": "Fixture web-api starter entry.",
       "tags": ["fixture", "starter", "web", "api"],
       "trust": {
@@ -53,7 +53,7 @@
       "id": "web-api-db",
       "kind": "template",
       "package": "@attebury/topogram-starter-web-api-db",
-      "defaultVersion": "0.1.2",
+      "defaultVersion": "0.1.3",
       "description": "Fixture web-api-db starter entry.",
       "tags": ["fixture", "starter", "web", "api", "database"],
       "trust": {

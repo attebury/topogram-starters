@@ -10,7 +10,7 @@ aliases resolve to these versioned packages.
 
 | Package | Catalog ID | Surfaces | Stack | Start Here When |
 | --- | --- | --- | --- | --- |
-| `@attebury/topogram-starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS | You want the smallest starter and no executable implementation trust step. |
+| `@attebury/topogram-starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@attebury/topogram-generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
 | `@attebury/topogram-starter-hello-api` | `hello-api` | api | Hono | You want to model and generate an API surface only. |
 | `@attebury/topogram-starter-hello-db` | `hello-db` | database | SQLite | You want database lifecycle output without web/API code. |
 | `@attebury/topogram-starter-web-api` | `web-api` | web, api | React + Express | You want a generated web/API app without a database. |
@@ -35,7 +35,8 @@ starting points that prove a topology, generator combination, and ownership
 mode.
 
 - `hello-web` creates a generated vanilla web app with two pages and one simple
-  workflow. It has no API, database, or executable implementation provider.
+  workflow through the external vanilla-web generator package. It has no API,
+  database, or executable implementation provider.
 - `hello-api` creates a generated Hono API surface only. Use it when the first
   artifact you need is an API contract and runtime shell.
 - `hello-db` creates SQLite database lifecycle output only. Use it to start

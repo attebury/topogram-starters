@@ -97,6 +97,7 @@ for (const packageDirName of packageNames) {
   }
   run("npm", ["run", "check"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "generate"], { cwd: starterRoot, quiet: true });
+  run("npm", ["--prefix", path.join(starterRoot, "app"), "run", "compile"], { cwd: starterRoot, quiet: true });
 }
 
 console.log("");

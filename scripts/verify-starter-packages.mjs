@@ -77,11 +77,15 @@ for (const packageDirName of packageNames) {
   run("npm", ["install"], { cwd: starterRoot, quiet: true });
   const starterPkg = JSON.parse(fs.readFileSync(path.join(starterRoot, "package.json"), "utf8"));
   assert.equal(starterPkg.scripts?.doctor, "topogram doctor", `${packageDirName} should expose npm run doctor`);
+  assert.equal(starterPkg.scripts?.["query:list"], "topogram query list --json", `${packageDirName} should expose npm run query:list`);
+  assert.equal(starterPkg.scripts?.["query:show"], "topogram query show", `${packageDirName} should expose npm run query:show`);
   assert.equal(starterPkg.scripts?.["source:status"], "topogram source status --local", `${packageDirName} should expose local npm run source:status`);
   assert.equal(starterPkg.scripts?.["source:status:remote"], "topogram source status --remote", ` should expose npm run source:status:remote`);
   assert.equal(starterPkg.scripts?.["template:detach"], "topogram template detach", `${packageDirName} should expose npm run template:detach`);
   assert.equal(starterPkg.scripts?.["template:detach:dry-run"], "topogram template detach --dry-run", `${packageDirName} should expose npm run template:detach:dry-run`);
   run("npm", ["run", "doctor"], { cwd: starterRoot, quiet: true });
+  run("npm", ["run", "query:list"], { cwd: starterRoot, quiet: true });
+  run("npm", ["run", "query:show", "--", "component-behavior"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "source:status"], { cwd: starterRoot, quiet: true });
   const detachDryRun = run(topogramBin, ["template", "detach", starterRoot, "--dry-run", "--json"], { cwd: starterRoot, quiet: true });
   const detachPayload = JSON.parse(detachDryRun.stdout);

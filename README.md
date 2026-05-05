@@ -19,9 +19,10 @@ aliases resolve to these versioned packages.
 Use the CLI catalog view to choose a starter:
 
 ```bash
-topogram new --list-templates
-topogram new --list-templates --json
-topogram catalog show hello-web
+npm install --save-dev @topogram/cli
+npx topogram new --list-templates
+npx topogram new --list-templates --json
+npx topogram catalog show hello-web
 ```
 
 The JSON list includes `surfaces`, `generators`, `stack`,
@@ -54,14 +55,17 @@ refreshing trust after edits.
 ## User Flow
 
 ```bash
-topogram template list
-topogram catalog show hello-web
-topogram new ./my-app --template hello-web
+npm install --save-dev @topogram/cli
+npx topogram doctor
+npx topogram template list
+npx topogram catalog show hello-web
+npx topogram new ./my-app --template hello-web
 cd ./my-app
 npm install
 npm run doctor
 npm run check
 npm run generate
+npm --prefix app run compile
 ```
 
 Choose `web-api`, `web-api-db`, `hello-api`, or `hello-db` by swapping the

@@ -6,14 +6,14 @@ This starter includes executable `implementation/` provider code. Review local
 template trust before generation.
 
 ```bash
-topogram new ./web-api-db --template @attebury/topogram-starter-web-api-db
+topogram new ./web-api-db --template @topogram/starter-web-api-db
 ```
 
 ## Contract
 
 - Catalog id: `web-api-db`
 - Surfaces: `web`, `api`, `database`
-- Generators: `@attebury/topogram-generator-sveltekit-web`, `@attebury/topogram-generator-hono-api`, `@attebury/topogram-generator-postgres-db`
+- Generators: `@topogram/generator-sveltekit-web`, `@topogram/generator-hono-api`, `@topogram/generator-postgres-db`
 - Runtime stack: SvelteKit + Hono + Postgres
 - Executable implementation: yes
 - Purpose: full-stack starter with explicit web-to-API and API-to-database wiring.

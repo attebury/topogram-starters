@@ -27,5 +27,5 @@ The check must:
 - Generate-only starter smoke tests.
 - Checking only package metadata, sentinel files, or generated paths.
 - Fake template/package installs in consumer-facing verification.
-- Stale hard-coded `@attebury/topogram@x.y.z` literals instead of
+- Stale hard-coded `@topogram/cli@x.y.z` literals instead of
   `topogram-cli.version`.

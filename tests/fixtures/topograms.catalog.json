@@ -4,8 +4,8 @@
     {
       "id": "hello-web",
       "kind": "template",
-      "package": "@attebury/topogram-starter-hello-web",
-      "defaultVersion": "0.1.6",
+      "package": "@topogram/starter-hello-web",
+      "defaultVersion": "0.1.7",
       "description": "Fixture hello-web starter entry.",
       "tags": [
         "fixture",
@@ -13,15 +13,15 @@
         "web"
       ],
       "trust": {
-        "scope": "@attebury",
+        "scope": "@topogram",
         "includesExecutableImplementation": false
       }
     },
     {
       "id": "hello-api",
       "kind": "template",
-      "package": "@attebury/topogram-starter-hello-api",
-      "defaultVersion": "0.1.6",
+      "package": "@topogram/starter-hello-api",
+      "defaultVersion": "0.1.7",
       "description": "Fixture hello-api starter entry.",
       "tags": [
         "fixture",
@@ -29,15 +29,15 @@
         "api"
       ],
       "trust": {
-        "scope": "@attebury",
+        "scope": "@topogram",
         "includesExecutableImplementation": false
       }
     },
     {
       "id": "hello-db",
       "kind": "template",
-      "package": "@attebury/topogram-starter-hello-db",
-      "defaultVersion": "0.1.6",
+      "package": "@topogram/starter-hello-db",
+      "defaultVersion": "0.1.7",
       "description": "Fixture hello-db starter entry.",
       "tags": [
         "fixture",
@@ -45,15 +45,15 @@
         "database"
       ],
       "trust": {
-        "scope": "@attebury",
+        "scope": "@topogram",
         "includesExecutableImplementation": false
       }
     },
     {
       "id": "web-api",
       "kind": "template",
-      "package": "@attebury/topogram-starter-web-api",
-      "defaultVersion": "0.1.6",
+      "package": "@topogram/starter-web-api",
+      "defaultVersion": "0.1.7",
       "description": "Fixture web-api starter entry.",
       "tags": [
         "fixture",
@@ -62,15 +62,15 @@
         "api"
       ],
       "trust": {
-        "scope": "@attebury",
+        "scope": "@topogram",
         "includesExecutableImplementation": true
       }
     },
     {
       "id": "web-api-db",
       "kind": "template",
-      "package": "@attebury/topogram-starter-web-api-db",
-      "defaultVersion": "0.1.6",
+      "package": "@topogram/starter-web-api-db",
+      "defaultVersion": "0.1.7",
       "description": "Fixture web-api-db starter entry.",
       "tags": [
         "fixture",
@@ -80,7 +80,7 @@
         "database"
       ],
       "trust": {
-        "scope": "@attebury",
+        "scope": "@topogram",
         "includesExecutableImplementation": true
       }
     }

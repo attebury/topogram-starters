@@ -1,6 +1,6 @@
 {
-  "name": "@attebury/topogram-starter-web-api",
-  "version": "0.1.6",
+  "name": "@topogram/starter-web-api",
+  "version": "0.1.7",
   "description": "React and Express Topogram starter.",
   "license": "UNLICENSED",
   "private": false,
@@ -13,10 +13,11 @@
     "README.md"
   ],
   "devDependencies": {
-    "@attebury/topogram-generator-express-api": "^0.1.0",
-    "@attebury/topogram-generator-react-web": "^0.1.2"
+    "@topogram/generator-express-api": "0.1.2",
+    "@topogram/generator-react-web": "0.1.4"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

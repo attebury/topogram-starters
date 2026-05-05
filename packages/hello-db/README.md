@@ -3,14 +3,14 @@
 Package-backed SQLite database lifecycle starter for `topogram new`.
 
 ```bash
-topogram new ./hello-db --template @attebury/topogram-starter-hello-db
+topogram new ./hello-db --template @topogram/starter-hello-db
 ```
 
 ## Contract
 
 - Catalog id: `hello-db`
 - Surfaces: `database`
-- Generator: `@attebury/topogram-generator-sqlite-db`
+- Generator: `@topogram/generator-sqlite-db`
 - Runtime stack: SQLite
 - Executable implementation: no
 - Purpose: database lifecycle starter for schema/migration output without web or API code.

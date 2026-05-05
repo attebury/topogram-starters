@@ -3,14 +3,14 @@
 Package-backed Hono API-only starter for `topogram new`.
 
 ```bash
-topogram new ./hello-api --template @attebury/topogram-starter-hello-api
+topogram new ./hello-api --template @topogram/starter-hello-api
 ```
 
 ## Contract
 
 - Catalog id: `hello-api`
 - Surfaces: `api`
-- Generator: `@attebury/topogram-generator-hono-api`
+- Generator: `@topogram/generator-hono-api`
 - Runtime stack: Hono
 - Executable implementation: no
 - Purpose: API-only starter for modeling endpoint contracts without web or database output.

@@ -3,18 +3,18 @@
 Package-backed starter templates for Topogram.
 
 These packages are the shared catalog-backed starter path for Topogram. The
-`@attebury/topogram` CLI does not bundle product starter templates; catalog
+`@topogram/cli` CLI does not bundle product starter templates; catalog
 aliases resolve to these versioned packages.
 
 ## Packages
 
 | Package | Catalog ID | Surfaces | Stack | Start Here When |
 | --- | --- | --- | --- | --- |
-| `@attebury/topogram-starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@attebury/topogram-generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
-| `@attebury/topogram-starter-hello-api` | `hello-api` | api | Hono via `@attebury/topogram-generator-hono-api` | You want to model and generate an API surface only. |
-| `@attebury/topogram-starter-hello-db` | `hello-db` | database | SQLite via `@attebury/topogram-generator-sqlite-db` | You want database lifecycle output without web/API code. |
-| `@attebury/topogram-starter-web-api` | `web-api` | web, api | React + Express via package generators | You want a generated web/API app without a database. |
-| `@attebury/topogram-starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres via package generators | You want the full-stack starter and accept the heavier runtime setup. |
+| `@topogram/starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@topogram/generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
+| `@topogram/starter-hello-api` | `hello-api` | api | Hono via `@topogram/generator-hono-api` | You want to model and generate an API surface only. |
+| `@topogram/starter-hello-db` | `hello-db` | database | SQLite via `@topogram/generator-sqlite-db` | You want database lifecycle output without web/API code. |
+| `@topogram/starter-web-api` | `web-api` | web, api | React + Express via package generators | You want a generated web/API app without a database. |
+| `@topogram/starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres via package generators | You want the full-stack starter and accept the heavier runtime setup. |
 
 Use the CLI catalog view to choose a starter:
 
@@ -92,7 +92,7 @@ npm run catalog:update -- ../topograms/topograms.catalog.json
 
 The script reads every local `packages/*/package.json`, verifies the matching
 `topogram-template.json` versions, requires all starter packages to share one
-version, and updates only matching `@attebury/topogram-starter-*` entries in the
+version, and updates only matching `@topogram/starter-*` entries in the
 given catalog file. Use `--check` when you only want to verify the catalog is
 already aligned:
 

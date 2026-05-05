@@ -24,20 +24,17 @@ const packRoot = path.join(runRoot, "pack");
 const consumerRoot = path.join(runRoot, "consumer");
 fs.mkdirSync(packRoot, { recursive: true });
 fs.mkdirSync(consumerRoot, { recursive: true });
+const generatorPackageOverrides = readGeneratorPackageOverrides();
 
 console.log(`Installing Topogram CLI (${cliPackageSpec}) into a consumer project...`);
 run("npm", ["init", "-y"], { cwd: consumerRoot, quiet: true });
-run("npm", ["config", "set", "@attebury:registry", "https://npm.pkg.github.com", "--location=project"], { cwd: consumerRoot, quiet: true });
-if (process.env.NODE_AUTH_TOKEN) {
-  run("npm", ["config", "set", "//npm.pkg.github.com/:_authToken", process.env.NODE_AUTH_TOKEN, "--location=project"], { cwd: consumerRoot, quiet: true });
-}
 run("npm", ["install", cliPackageSpec], { cwd: consumerRoot, quiet: true });
 
 const topogramBin = path.join(consumerRoot, "node_modules", ".bin", process.platform === "win32" ? "topogram.cmd" : "topogram");
 assert.equal(fs.existsSync(topogramBin), true, `Expected topogram binary at ${topogramBin}`);
 const version = run(topogramBin, ["version", "--json"], { cwd: consumerRoot, quiet: true });
 const versionPayload = JSON.parse(version.stdout);
-assert.equal(versionPayload.packageName, "@attebury/topogram");
+assert.equal(versionPayload.packageName, "@topogram/cli");
 if (expectedCliVersion) {
   assert.equal(versionPayload.version, expectedCliVersion);
 }
@@ -53,11 +50,12 @@ for (const packageDirName of packageNames) {
   assert.equal(fs.existsSync(pkgPath), true, `${packageDirName} is missing package.json`);
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
-  assert.equal(manifest.id, pkg.name, `${packageDirName} manifest id must match package name`);
-  assert.equal(manifest.version, pkg.version, `${packageDirName} manifest version must match package version`);
+	  assert.equal(manifest.id, pkg.name, `${packageDirName} manifest id must match package name`);
+	  assert.equal(manifest.version, pkg.version, `${packageDirName} manifest version must match package version`);
 
-  console.log(`Packing ${pkg.name}...`);
-  const pack = run("npm", ["pack", "--silent", "--pack-destination", packRoot], { cwd: packageRoot });
+	  console.log(`Packing ${pkg.name}...`);
+	  const packablePackageRoot = preparePackageRootForPack(packageRoot, packageDirName, generatorPackageOverrides);
+	  const pack = run("npm", ["pack", "--silent", "--pack-destination", packRoot], { cwd: packablePackageRoot });
   const tarballName = pack.stdout.trim().split(/\r?\n/).filter(Boolean).at(-1);
   const tarballPath = path.join(packRoot, tarballName);
   assert.equal(fs.existsSync(tarballPath), true, `Expected tarball ${tarballPath}`);
@@ -73,7 +71,8 @@ for (const packageDirName of packageNames) {
       TOPOGRAM_CLI_PACKAGE_SPEC: starterCliPackageSpec
     },
     quiet: true
-  });
+	  });
+  applyGeneratorPackageOverrides(starterRoot, generatorPackageOverrides);
   run("npm", ["install"], { cwd: starterRoot, quiet: true });
   const starterPkg = JSON.parse(fs.readFileSync(path.join(starterRoot, "package.json"), "utf8"));
   assert.equal(starterPkg.scripts?.doctor, "topogram doctor", `${packageDirName} should expose npm run doctor`);
@@ -131,7 +130,7 @@ function run(command, args, options = {}) {
 }
 
 function starterDependencySpecFor(packageSpec) {
-  const prefix = "@attebury/topogram@";
+  const prefix = "@topogram/cli@";
   if (packageSpec.startsWith(prefix)) {
     return packageSpec.slice(prefix.length);
   }
@@ -139,7 +138,7 @@ function starterDependencySpecFor(packageSpec) {
 }
 
 function expectedVersionFromPackageSpec(packageSpec) {
-  const prefix = "@attebury/topogram@";
+  const prefix = "@topogram/cli@";
   if (!packageSpec.startsWith(prefix)) {
     return null;
   }
@@ -150,8 +149,67 @@ function expectedVersionFromPackageSpec(packageSpec) {
 function defaultCliPackageSpec() {
   const versionPath = path.join(root, "topogram-cli.version");
   if (!fs.existsSync(versionPath)) {
-    return "@attebury/topogram@latest";
+    return "@topogram/cli@latest";
   }
   const version = fs.readFileSync(versionPath, "utf8").trim();
-  return version ? `@attebury/topogram@${version}` : "@attebury/topogram@latest";
+  return version ? `@topogram/cli@${version}` : "@topogram/cli@latest";
+}
+
+function readGeneratorPackageOverrides() {
+  const inline = process.env.TOPOGRAM_GENERATOR_PACKAGE_OVERRIDES || "";
+  if (inline) {
+    return JSON.parse(inline);
+  }
+  const roots = (process.env.TOPOGRAM_GENERATOR_PACKAGE_ROOTS || "")
+    .split(path.delimiter)
+    .map((value) => value.trim())
+    .filter(Boolean);
+  if (roots.length === 0) {
+    return {};
+  }
+  const overrides = {};
+  for (const generatorRoot of roots) {
+    const pkg = JSON.parse(fs.readFileSync(path.join(generatorRoot, "package.json"), "utf8"));
+    const pack = run("npm", ["pack", "--silent", "--pack-destination", packRoot], { cwd: generatorRoot, quiet: true });
+    const tarballName = pack.stdout.trim().split(/\r?\n/).filter(Boolean).at(-1);
+    const tarballPath = path.join(packRoot, tarballName);
+    overrides[pkg.name] = `file:${tarballPath}`;
+  }
+  return overrides;
+}
+
+function applyGeneratorPackageOverrides(starterRoot, overrides) {
+  if (!overrides || Object.keys(overrides).length === 0) {
+    return;
+  }
+  const packagePath = path.join(starterRoot, "package.json");
+  const pkg = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+  let changed = false;
+  for (const sectionName of ["dependencies", "devDependencies"]) {
+    const section = pkg[sectionName];
+    if (!section || typeof section !== "object") {
+      continue;
+    }
+    for (const [name, spec] of Object.entries(overrides)) {
+      if (Object.prototype.hasOwnProperty.call(section, name)) {
+        section[name] = spec;
+        changed = true;
+      }
+    }
+  }
+  if (changed) {
+    fs.writeFileSync(packagePath, `${JSON.stringify(pkg, null, 2)}\n`, "utf8");
+  }
+}
+
+function preparePackageRootForPack(packageRoot, packageDirName, overrides) {
+  if (!overrides || Object.keys(overrides).length === 0) {
+    return packageRoot;
+  }
+  const packageWorkRoot = path.join(runRoot, "package-overrides", packageDirName);
+  fs.rmSync(packageWorkRoot, { recursive: true, force: true });
+  fs.mkdirSync(path.dirname(packageWorkRoot), { recursive: true });
+  fs.cpSync(packageRoot, packageWorkRoot, { recursive: true });
+  applyGeneratorPackageOverrides(packageWorkRoot, overrides);
+  return packageWorkRoot;
 }

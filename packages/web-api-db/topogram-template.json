@@ -1,6 +1,6 @@
 {
-  "id": "@attebury/topogram-starter-web-api-db",
-  "version": "0.1.6",
+  "id": "@topogram/starter-web-api-db",
+  "version": "0.1.7",
   "kind": "starter",
   "description": "Neutral Hello-resource web/API/database starter.",
   "topogramVersion": "0.1",

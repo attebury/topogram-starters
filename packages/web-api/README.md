@@ -6,14 +6,14 @@ This starter includes executable `implementation/` provider code. Review local
 template trust before generation.
 
 ```bash
-topogram new ./web-api --template @attebury/topogram-starter-web-api
+topogram new ./web-api --template @topogram/starter-web-api
 ```
 
 ## Contract
 
 - Catalog id: `web-api`
 - Surfaces: `web`, `api`
-- Generators: `@attebury/topogram-generator-react-web`, `@attebury/topogram-generator-express-api`
+- Generators: `@topogram/generator-react-web`, `@topogram/generator-express-api`
 - Runtime stack: React + Express
 - Executable implementation: yes
 - Purpose: generated web/API starter with explicit web-to-API wiring and no database dependency.

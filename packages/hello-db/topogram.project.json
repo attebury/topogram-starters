@@ -13,9 +13,9 @@
         "type": "database",
         "projection": "proj_db_sqlite",
         "generator": {
-          "id": "@attebury/topogram-generator-sqlite-db",
+          "id": "@topogram/generator-sqlite-db",
           "version": "1",
-          "package": "@attebury/topogram-generator-sqlite-db"
+          "package": "@topogram/generator-sqlite-db"
         }
       }
     ]

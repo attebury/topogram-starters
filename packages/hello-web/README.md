@@ -3,14 +3,14 @@
 Package-backed vanilla HTML/CSS/JS starter for `topogram new`.
 
 ```bash
-topogram new ./hello-web --template @attebury/topogram-starter-hello-web
+topogram new ./hello-web --template @topogram/starter-hello-web
 ```
 
 ## Contract
 
 - Catalog id: `hello-web`
 - Surfaces: `web`
-- Generator: `@attebury/topogram-generator-vanilla-web`
+- Generator: `@topogram/generator-vanilla-web`
 - Runtime stack: vanilla HTML/CSS/JS
 - Executable implementation: no
 - Purpose: smallest generated web starter with two pages and one workflow.

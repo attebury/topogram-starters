@@ -29,7 +29,7 @@ if (!Array.isArray(catalog.entries)) {
 }
 
 const catalogStarterEntries = catalog.entries.filter((entry) => {
-  return typeof entry?.package === "string" && entry.package.startsWith("@attebury/topogram-starter-");
+  return typeof entry?.package === "string" && entry.package.startsWith("@topogram/starter-");
 });
 const catalogStarterPackages = new Set(catalogStarterEntries.map((entry) => entry.package));
 for (const packageName of starterPackages.keys()) {
@@ -91,8 +91,8 @@ function readStarterPackages() {
     }
     const pkg = JSON.parse(fs.readFileSync(packagePath, "utf8"));
     const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-    if (typeof pkg.name !== "string" || !pkg.name.startsWith("@attebury/topogram-starter-")) {
-      fail(`${packageDir} package name is not an @attebury/topogram-starter-* package.`);
+    if (typeof pkg.name !== "string" || !pkg.name.startsWith("@topogram/starter-")) {
+      fail(`${packageDir} package name is not an @topogram/starter-* package.`);
     }
     if (typeof pkg.version !== "string" || !pkg.version) {
       fail(`${pkg.name} package.json must include a version.`);

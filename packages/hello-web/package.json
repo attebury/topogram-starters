@@ -1,6 +1,6 @@
 {
-  "name": "@attebury/topogram-starter-hello-web",
-  "version": "0.1.6",
+  "name": "@topogram/starter-hello-web",
+  "version": "0.1.7",
   "description": "Vanilla HTML/CSS/JS Topogram starter with two pages and one workflow.",
   "license": "UNLICENSED",
   "private": false,
@@ -12,9 +12,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "@attebury/topogram-generator-vanilla-web": "^0.1.1"
+    "@topogram/generator-vanilla-web": "0.1.2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

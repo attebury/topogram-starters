@@ -1,6 +1,6 @@
 {
   "name": "@attebury/topogram-starter-web-api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "React and Express Topogram starter.",
   "license": "UNLICENSED",
   "private": false,
@@ -14,7 +14,7 @@
   ],
   "devDependencies": {
     "@attebury/topogram-generator-express-api": "^0.1.0",
-    "@attebury/topogram-generator-react-web": "^0.1.0"
+    "@attebury/topogram-generator-react-web": "^0.1.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

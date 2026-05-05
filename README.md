@@ -73,6 +73,9 @@ catalog id in the `catalog show` and `new` commands.
 npm run pack:check
 ```
 
+See [`CONSUMER_PROOF.md`](./CONSUMER_PROOF.md) for the verification standard
+this repo must keep before publishing starter packages.
+
 The smoke test packs each starter, runs `topogram template check`, creates a
 disposable project with `topogram new --template <tarball>`, then runs
 `npm run doctor`, `npm run source:status`, `npm run check`, `npm run generate`,

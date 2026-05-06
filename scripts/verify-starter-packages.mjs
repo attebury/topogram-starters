@@ -59,6 +59,7 @@ for (const packageDirName of packageNames) {
   const tarballName = pack.stdout.trim().split(/\r?\n/).filter(Boolean).at(-1);
   const tarballPath = path.join(packRoot, tarballName);
   assert.equal(fs.existsSync(tarballPath), true, `Expected tarball ${tarballPath}`);
+  assertNoEnvFilesInTarball(tarballPath, pkg.name);
 
   console.log(`Checking ${pkg.name}...`);
   run(topogramBin, ["template", "check", tarballPath], { cwd: consumerRoot, quiet: true });
@@ -212,4 +213,13 @@ function preparePackageRootForPack(packageRoot, packageDirName, overrides) {
   fs.cpSync(packageRoot, packageWorkRoot, { recursive: true });
   applyGeneratorPackageOverrides(packageWorkRoot, overrides);
   return packageWorkRoot;
+}
+
+function assertNoEnvFilesInTarball(tarballPath, packageName) {
+  const listing = run("tar", ["-tzf", tarballPath], { quiet: true });
+  const envFiles = listing.stdout
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .filter((entry) => path.posix.basename(entry).startsWith(".env"));
+  assert.deepEqual(envFiles, [], `${packageName} package must not publish .env* files`);
 }

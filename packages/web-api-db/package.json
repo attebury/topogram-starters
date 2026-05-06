@@ -7,7 +7,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/attebury/topogram-starters",
+    "url": "git+https://github.com/attebury/topogram-starters.git",
     "directory": "packages/web-api-db"
   },
   "files": [

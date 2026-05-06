@@ -1,10 +1,15 @@
 {
   "name": "@topogram/starter-hello-web",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Vanilla HTML/CSS/JS Topogram starter with two pages and one workflow.",
   "license": "UNLICENSED",
   "private": false,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/attebury/topogram-starters",
+    "directory": "packages/hello-web"
+  },
   "files": [
     "topogram-template.json",
     "topogram",

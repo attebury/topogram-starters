@@ -64,6 +64,8 @@ jobs:
           EXPECTED_TOPOGRAM_CLI_VERSION="$TOPOGRAM_CLI_VERSION" \
             npm run pack:check
       - name: Publish packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           for package_dir in packages/*; do
             (cd "$package_dir" && npm publish --provenance --access public --tag "${{ inputs.dist_tag }}")

@@ -85,7 +85,7 @@ for (const packageDirName of packageNames) {
   assert.equal(starterPkg.scripts?.["template:detach:dry-run"], "topogram template detach --dry-run", `${packageDirName} should expose npm run template:detach:dry-run`);
   run("npm", ["run", "doctor"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "query:list"], { cwd: starterRoot, quiet: true });
-  run("npm", ["run", "query:show", "--", "component-behavior"], { cwd: starterRoot, quiet: true });
+  run("npm", ["run", "query:show", "--", "widget-behavior"], { cwd: starterRoot, quiet: true });
   run("npm", ["run", "source:status"], { cwd: starterRoot, quiet: true });
   const detachDryRun = run(topogramBin, ["template", "detach", starterRoot, "--dry-run", "--json"], { cwd: starterRoot, quiet: true });
   const detachPayload = JSON.parse(detachDryRun.stdout);

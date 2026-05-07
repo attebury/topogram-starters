@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-hello-api",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Hono API-only Topogram starter.",
   "license": "UNLICENSED",
   "private": false,

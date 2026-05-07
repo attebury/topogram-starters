@@ -1,6 +1,6 @@
 {
   "id": "@topogram/starter-hello-db",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "kind": "starter",
   "description": "SQLite database lifecycle starter.",
   "topogramVersion": "0.1",

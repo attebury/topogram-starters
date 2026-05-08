@@ -1,0 +1,27 @@
+projection proj_ios_surface {
+  name "Hello iOS"
+  description "SwiftUI realization for the hello native starter"
+  type ios_surface
+
+  realizes [proj_ui_contract, cap_view_hello]
+  outputs [ui_contract, native_app]
+
+  screen_routes {
+    screen hello_home path /
+    screen hello_workflow path /workflow
+  }
+
+  ios_hints {
+    screen hello_home shell topbar
+    screen hello_home layout detail_page
+    screen hello_workflow layout detail_page
+  }
+
+  generator_defaults {
+    profile swiftui
+    language swift
+    styling css
+  }
+
+  status active
+}

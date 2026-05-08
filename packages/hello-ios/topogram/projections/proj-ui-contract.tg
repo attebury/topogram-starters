@@ -1,0 +1,30 @@
+projection proj_ui_contract {
+  name "Hello UI Contract"
+  description "Platform-neutral UI semantics for the hello native starter"
+  type ui_contract
+
+  realizes [cap_view_hello]
+  outputs [ui_contract]
+
+  app_shell {
+    brand "Topogram Hello"
+    shell topbar
+    global_search false
+    notifications false
+    account_menu false
+    footer none
+  }
+
+  screens {
+    screen hello_home kind detail title "Hello Native" load cap_view_hello view_shape shape_output_hello loading_state none
+    screen hello_workflow kind detail title "Hello Workflow" load cap_view_hello view_shape shape_output_hello loading_state none
+  }
+
+  navigation {
+    group hello label "Hello" placement primary pattern primary
+    screen hello_home group hello label "Home" order 10 visible true default true sitemap include pattern primary
+    screen hello_workflow group hello label "Workflow" order 20 visible true sitemap include pattern primary
+  }
+
+  status active
+}

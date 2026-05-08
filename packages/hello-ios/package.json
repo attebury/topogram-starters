@@ -1,25 +1,23 @@
 {
-  "name": "@topogram/starter-web-api",
+  "name": "@topogram/starter-hello-ios",
   "version": "0.1.13",
-  "description": "React and Express Topogram starter.",
+  "description": "SwiftUI native Topogram starter with two screens and one workflow.",
   "license": "UNLICENSED",
   "private": false,
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/attebury/topogram-starters.git",
-    "directory": "packages/web-api"
+    "directory": "packages/hello-ios"
   },
   "files": [
     "topogram-template.json",
     "topogram",
     "topogram.project.json",
-    "implementation",
     "README.md"
   ],
   "devDependencies": {
-    "@topogram/generator-express-api": "0.1.4",
-    "@topogram/generator-react-web": "0.1.7"
+    "@topogram/generator-swiftui-native": "0.1.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

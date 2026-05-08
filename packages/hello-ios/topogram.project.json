@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "outputs": {
+    "app": {
+      "path": "./app",
+      "ownership": "generated"
+    }
+  },
+  "topology": {
+    "runtimes": [
+      {
+        "id": "app_ios",
+        "projection": "proj_ios_surface",
+        "generator": {
+          "id": "@topogram/generator-swiftui-native",
+          "version": "1",
+          "package": "@topogram/generator-swiftui-native"
+        },
+        "kind": "ios_surface"
+      }
+    ]
+  }
+}

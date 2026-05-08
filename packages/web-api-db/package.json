@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-web-api-db",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "SvelteKit, Hono, and Postgres Topogram starter.",
   "license": "UNLICENSED",
   "private": false,

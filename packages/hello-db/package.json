@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-hello-db",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "SQLite database lifecycle Topogram starter.",
   "license": "UNLICENSED",
   "private": false,

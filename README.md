@@ -13,6 +13,7 @@ aliases resolve to these versioned packages.
 | `@topogram/starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@topogram/generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
 | `@topogram/starter-hello-api` | `hello-api` | api | Hono via `@topogram/generator-hono-api` | You want to model and generate an API surface only. |
 | `@topogram/starter-hello-db` | `hello-db` | database | SQLite via `@topogram/generator-sqlite-db` | You want database lifecycle output without web/API code. |
+| `@topogram/starter-hello-ios` | `hello-ios` | ios | SwiftUI via `@topogram/generator-swiftui-native` | You want a package-backed native starter without web/API/database code. |
 | `@topogram/starter-web-api` | `web-api` | web, api | React + Express via package generators | You want a generated web/API app without a database. |
 | `@topogram/starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres via package generators | You want the full-stack starter and accept the heavier runtime setup. |
 
@@ -42,6 +43,9 @@ mode.
   artifact you need is an API contract and runtime shell.
 - `hello-db` creates SQLite database lifecycle output only. Use it to start
   database modeling without web/API code.
+- `hello-ios` creates a generated SwiftUI native app with two screens and one
+  simple workflow through the external SwiftUI generator package. It has no
+  web, API, database, or executable implementation provider.
 - `web-api` creates a generated React + Express app with explicit web-to-API
   wiring and no database dependency.
 - `web-api-db` creates a generated SvelteKit + Hono + Postgres app with
@@ -68,7 +72,7 @@ npm run generate
 npm --prefix app run compile
 ```
 
-Choose `web-api`, `web-api-db`, `hello-api`, or `hello-db` by swapping the
+Choose `web-api`, `web-api-db`, `hello-api`, `hello-db`, or `hello-ios` by swapping the
 catalog id in the `catalog show` and `new` commands.
 
 ## Verify

@@ -13,7 +13,7 @@ aliases resolve to these versioned packages.
 | `@topogram/starter-hello-web` | `hello-web` | web | Vanilla HTML/CSS/JS via `@topogram/generator-vanilla-web` | You want the smallest starter and no executable implementation trust step. |
 | `@topogram/starter-hello-api` | `hello-api` | api | Hono via `@topogram/generator-hono-api` | You want to model and generate an API surface only. |
 | `@topogram/starter-hello-db` | `hello-db` | database | SQLite via `@topogram/generator-sqlite-db` | You want database lifecycle output without web/API code. |
-| `@topogram/starter-hello-ios` | `hello-ios` | ios | SwiftUI via `@topogram/generator-swiftui-native` | You want a package-backed native starter without web/API/database code. |
+| `@topogram/starter-hello-ios` | `hello-ios` | native | SwiftUI via `@topogram/generator-swiftui-native` | You want a package-backed iOS starter without web/API/database code. |
 | `@topogram/starter-web-api` | `web-api` | web, api | React + Express via package generators | You want a generated web/API app without a database. |
 | `@topogram/starter-web-api-db` | `web-api-db` | web, api, database | SvelteKit + Hono + Postgres via package generators | You want the full-stack starter and accept the heavier runtime setup. |
 

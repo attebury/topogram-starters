@@ -68,7 +68,17 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           for package_dir in packages/*; do
-            (cd "$package_dir" && npm publish --provenance --access public --tag "${{ inputs.dist_tag }}")
+            (
+              cd "$package_dir"
+              PACKAGE_NAME="$(node -p "require('./package.json').name")"
+              PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+              if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version >/dev/null 2>&1; then
+                echo "$PACKAGE_NAME@$PACKAGE_VERSION is already published; ensuring public access"
+              else
+                npm publish --provenance --access public --tag "${{ inputs.dist_tag }}"
+              fi
+              npm access set status=public "$PACKAGE_NAME"
+            )
           done
       - name: Create release tag
         if: ${{ inputs.create_tag }}

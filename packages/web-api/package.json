@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-web-api",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "React and Express Topogram starter.",
   "license": "UNLICENSED",
   "private": false,
@@ -12,7 +12,7 @@
   },
   "files": [
     "topogram-template.json",
-    "topogram",
+    "topo",
     "topogram.project.json",
     "implementation",
     "README.md"

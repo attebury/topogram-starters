@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-hello-web",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Vanilla HTML/CSS/JS Topogram starter with two pages and one workflow.",
   "license": "UNLICENSED",
   "private": false,
@@ -12,7 +12,7 @@
   },
   "files": [
     "topogram-template.json",
-    "topogram",
+    "topo",
     "topogram.project.json",
     "README.md"
   ],

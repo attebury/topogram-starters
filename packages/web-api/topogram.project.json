@@ -1,10 +1,6 @@
 {
   "version": "0.1",
-  "implementation": {
-    "id": "web-api-template",
-    "module": "./implementation/index.js",
-    "export": "WEB_API_IMPLEMENTATION"
-  },
+  "workspace": "./topo",
   "outputs": {
     "app": {
       "path": "./app",
@@ -37,5 +33,10 @@
         "uses_api": "app_api"
       }
     ]
+  },
+  "implementation": {
+    "id": "web-api-template",
+    "module": "./implementation/index.js",
+    "export": "WEB_API_IMPLEMENTATION"
   }
 }

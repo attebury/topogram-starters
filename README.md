@@ -21,8 +21,8 @@ Use the CLI catalog view to choose a starter:
 
 ```bash
 npm install --save-dev @topogram/cli
-npx topogram new --list-templates
-npx topogram new --list-templates --json
+npx topogram copy --list
+npx topogram copy --list --json
 npx topogram catalog show hello-web
 ```
 
@@ -52,7 +52,7 @@ mode.
   explicit web-to-API and API-to-database wiring.
 
 Executable starters copy `implementation/` provider code into the generated
-project and record local trust. `topogram new` does not execute that code, but
+project and record local trust. `topogram copy` does not execute that code, but
 `topogram generate` may load it later; review the copied implementation before
 refreshing trust after edits.
 
@@ -63,7 +63,7 @@ npm install --save-dev @topogram/cli
 npx topogram doctor
 npx topogram template list
 npx topogram catalog show hello-web
-npx topogram new ./my-app --template hello-web
+npx topogram copy hello-web ./my-app
 cd ./my-app
 npm install
 npm run doctor
@@ -85,7 +85,7 @@ See [`CONSUMER_PROOF.md`](./CONSUMER_PROOF.md) for the verification standard
 this repo must keep before publishing starter packages.
 
 The smoke test packs each starter, runs `topogram template check`, creates a
-disposable project with `topogram new --template <tarball>`, then runs
+disposable project with `topogram copy <tarball> <target>`, then runs
 `npm run doctor`, `npm run source:status`, `npm run check`, `npm run generate`,
 and the generated app compile check in that project.
 

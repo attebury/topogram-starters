@@ -1,12 +1,12 @@
 # Topogram Starter: Web API
 
-Package-backed React + Express starter for `topogram new`.
+Package-backed React + Express starter for `topogram copy`.
 
 This starter includes executable `implementation/` provider code. Review local
 template trust before generation.
 
 ```bash
-topogram new ./web-api --template @topogram/starter-web-api
+topogram copy @topogram/starter-web-api ./web-api
 ```
 
 ## Contract
@@ -21,7 +21,7 @@ topogram new ./web-api --template @topogram/starter-web-api
 ## First Run
 
 ```bash
-topogram new ./web-api --template web-api
+topogram copy web-api ./web-api
 cd ./web-api
 npm install
 npm run doctor

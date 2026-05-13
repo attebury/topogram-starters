@@ -1,9 +1,9 @@
 # Topogram Starter: Hello Web
 
-Package-backed vanilla HTML/CSS/JS starter for `topogram new`.
+Package-backed vanilla HTML/CSS/JS starter for `topogram copy`.
 
 ```bash
-topogram new ./hello-web --template @topogram/starter-hello-web
+topogram copy @topogram/starter-hello-web ./hello-web
 ```
 
 ## Contract
@@ -18,7 +18,7 @@ topogram new ./hello-web --template @topogram/starter-hello-web
 ## First Run
 
 ```bash
-topogram new ./hello-web --template hello-web
+topogram copy hello-web ./hello-web
 cd ./hello-web
 npm install
 npm run doctor

@@ -1,9 +1,9 @@
 # Topogram Starter: Hello DB
 
-Package-backed SQLite database lifecycle starter for `topogram new`.
+Package-backed SQLite database lifecycle starter for `topogram copy`.
 
 ```bash
-topogram new ./hello-db --template @topogram/starter-hello-db
+topogram copy @topogram/starter-hello-db ./hello-db
 ```
 
 ## Contract
@@ -18,7 +18,7 @@ topogram new ./hello-db --template @topogram/starter-hello-db
 ## First Run
 
 ```bash
-topogram new ./hello-db --template hello-db
+topogram copy hello-db ./hello-db
 cd ./hello-db
 npm install
 npm run doctor

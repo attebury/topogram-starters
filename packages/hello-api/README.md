@@ -1,9 +1,9 @@
 # Topogram Starter: Hello API
 
-Package-backed Hono API-only starter for `topogram new`.
+Package-backed Hono API-only starter for `topogram copy`.
 
 ```bash
-topogram new ./hello-api --template @topogram/starter-hello-api
+topogram copy @topogram/starter-hello-api ./hello-api
 ```
 
 ## Contract
@@ -18,7 +18,7 @@ topogram new ./hello-api --template @topogram/starter-hello-api
 ## First Run
 
 ```bash
-topogram new ./hello-api --template hello-api
+topogram copy hello-api ./hello-api
 cd ./hello-api
 npm install
 npm run doctor

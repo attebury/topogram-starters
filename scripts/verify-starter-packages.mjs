@@ -66,7 +66,7 @@ for (const packageDirName of packageNames) {
 
   const starterRoot = path.join(runRoot, `starter-${packageDirName}`);
   console.log(`Creating starter ${packageDirName}...`);
-  run(topogramBin, ["new", starterRoot, "--template", tarballPath], {
+  run(topogramBin, ["copy", tarballPath, starterRoot], {
     cwd: consumerRoot,
     env: {
       TOPOGRAM_CLI_PACKAGE_SPEC: starterCliPackageSpec

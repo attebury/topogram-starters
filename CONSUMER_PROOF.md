@@ -16,7 +16,7 @@ The check must:
   consumer project;
 - pack each starter package under `packages/`;
 - run `topogram template check <tarball>`;
-- create a disposable starter with `topogram new --template <tarball>`;
+- create a disposable starter with `topogram copy <tarball> <target>`;
 - run starter-level setup and discovery commands such as `doctor`,
   `query:list`, `source:status`, and `check`;
 - run `npm run generate`;

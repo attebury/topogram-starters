@@ -1,9 +1,9 @@
 # Topogram Starter: Hello iOS
 
-Package-backed SwiftUI native starter for `topogram new`.
+Package-backed SwiftUI native starter for `topogram copy`.
 
 ```bash
-topogram new ./hello-ios --template @topogram/starter-hello-ios
+topogram copy @topogram/starter-hello-ios ./hello-ios
 ```
 
 ## Contract
@@ -18,7 +18,7 @@ topogram new ./hello-ios --template @topogram/starter-hello-ios
 ## First Run
 
 ```bash
-topogram new ./hello-ios --template hello-ios
+topogram copy hello-ios ./hello-ios
 cd ./hello-ios
 npm install
 npm run doctor

@@ -1,12 +1,12 @@
 # Topogram Starter: Web API DB
 
-Package-backed SvelteKit + Hono + Postgres starter for `topogram new`.
+Package-backed SvelteKit + Hono + Postgres starter for `topogram copy`.
 
 This starter includes executable `implementation/` provider code. Review local
 template trust before generation.
 
 ```bash
-topogram new ./web-api-db --template @topogram/starter-web-api-db
+topogram copy @topogram/starter-web-api-db ./web-api-db
 ```
 
 ## Contract
@@ -21,7 +21,7 @@ topogram new ./web-api-db --template @topogram/starter-web-api-db
 ## First Run
 
 ```bash
-topogram new ./web-api-db --template web-api-db
+topogram copy web-api-db ./web-api-db
 cd ./web-api-db
 npm install
 npm run doctor

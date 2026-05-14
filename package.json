@@ -10,6 +10,6 @@
     "pack:check": "node ./scripts/verify-starter-packages.mjs"
   },
   "devDependencies": {
-    "@topogram/cli": "^0.3.88"
+    "@topogram/cli": "^0.3.89"
   }
 }

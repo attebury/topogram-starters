@@ -1,10 +1,10 @@
-projection proj_db_sqlite {
+surface proj_db_sqlite {
   name "Hello SQLite DB"
   description "SQLite persistence realization for the hello DB starter"
-  type db_contract
+  type db
 
   realizes [entity_greeting]
-  outputs [db_contract, sql_schema]
+  outputs [db, sql_schema]
 
   tables {
     entity_greeting table greetings

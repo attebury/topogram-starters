@@ -1,10 +1,10 @@
-projection proj_ui_contract {
-  name "Hello UI Contract"
-  description "Platform-neutral UI semantics for the hello native starter"
-  type ui_contract
+surface proj_semantic_ui {
+  name "Hello Shared UI"
+  description "Platform-neutral UI semantics for the hello web starter"
+  type semantic_ui
 
   realizes [cap_view_hello]
-  outputs [ui_contract]
+  outputs [semantic_ui]
 
   app_shell {
     brand "Topogram Hello"
@@ -15,8 +15,20 @@ projection proj_ui_contract {
     footer none
   }
 
+  design_tokens {
+    density comfortable
+    tone editorial
+    radius_scale small
+    color_role primary accent
+    typography_role body readable
+    typography_role heading prominent
+    action_role primary prominent
+    accessibility contrast aa
+    accessibility focus visible
+  }
+
   screens {
-    screen hello_home kind detail title "Hello Native" load cap_view_hello view_shape shape_output_hello loading_state none
+    screen hello_home kind detail title "Hello Web" load cap_view_hello view_shape shape_output_hello loading_state none
     screen hello_workflow kind detail title "Hello Workflow" load cap_view_hello view_shape shape_output_hello loading_state none
   }
 

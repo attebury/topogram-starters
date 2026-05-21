@@ -1,6 +1,6 @@
 {
   "name": "@topogram/starter-hello-ios",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "SwiftUI native Topogram starter with two screens and one workflow.",
   "license": "UNLICENSED",
   "private": false,
@@ -17,7 +17,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@topogram/generator-swiftui-native": "0.1.4"
+    "@topogram/generator-swiftui-native": "0.1.5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

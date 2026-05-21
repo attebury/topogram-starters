@@ -11,13 +11,13 @@
     "runtimes": [
       {
         "id": "app_ios",
-        "projection": "proj_ios_surface",
+        "surface": "proj_ios",
         "generator": {
           "id": "@topogram/generator-swiftui-native",
           "version": "1",
           "package": "@topogram/generator-swiftui-native"
         },
-        "kind": "ios_surface"
+        "kind": "ios"
       }
     ]
   }

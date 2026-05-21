@@ -1,10 +1,10 @@
-projection proj_ios_surface {
+surface proj_ios {
   name "Hello iOS"
   description "SwiftUI realization for the hello native starter"
-  type ios_surface
+  type ios
 
-  realizes [proj_ui_contract, cap_view_hello]
-  outputs [ui_contract, native_app]
+  realizes [proj_semantic_ui, cap_view_hello]
+  outputs [semantic_ui, native_app]
 
   screen_routes {
     screen hello_home path /

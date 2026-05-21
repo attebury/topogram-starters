@@ -1,10 +1,10 @@
-projection proj_ui_contract {
+surface proj_semantic_ui {
   name "Starter Shared UI"
   description "Platform-neutral UI semantics for the neutral starter"
-  type ui_contract
+  type semantic_ui
 
   realizes [cap_list_greetings, cap_get_greeting, cap_create_greeting, cap_update_greeting]
-  outputs [ui_contract]
+  outputs [semantic_ui]
 
   app_shell {
     brand "Topogram Starter"
@@ -46,10 +46,6 @@ projection proj_ui_contract {
     screen greeting_list region hero pattern summary_stats placement primary
     screen greeting_list region results pattern resource_table placement primary
     screen greeting_detail region summary pattern detail_panel placement primary
-  }
-
-  widget_bindings {
-    screen greeting_list region results widget widget_greeting_table data rows from cap_list_greetings event row_select navigate greeting_detail
   }
 
   status active

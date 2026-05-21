@@ -11,7 +11,7 @@
     "runtimes": [
       {
         "id": "app_api",
-        "projection": "proj_api",
+        "surface": "proj_api",
         "generator": {
           "id": "@topogram/generator-hono-api",
           "version": "1",

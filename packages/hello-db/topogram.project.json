@@ -11,7 +11,7 @@
     "runtimes": [
       {
         "id": "app_sqlite",
-        "projection": "proj_db_sqlite",
+        "surface": "proj_db_sqlite",
         "generator": {
           "id": "@topogram/generator-sqlite-db",
           "version": "1",

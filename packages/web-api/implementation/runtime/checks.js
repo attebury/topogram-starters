@@ -39,7 +39,7 @@ export const HELLO_RUNTIME_CHECKS = {
       },
       {
         id: "api_seed_greeting_ready",
-        kind: "api_contract",
+        kind: "api",
         capabilityId: "cap_get_greeting",
         pathParams: {
           greeting_id: "$env:TOPOGRAM_DEMO_PRIMARY_ID"
@@ -53,10 +53,10 @@ export const HELLO_RUNTIME_CHECKS = {
     id: "api",
     name: "API Contract Checks",
     checks: [
-      { id: "create_greeting", kind: "api_contract", capabilityId: "cap_create_greeting", mutating: true, mandatory: true },
-      { id: "get_created_greeting", kind: "api_contract", capabilityId: "cap_get_greeting", mutating: false, mandatory: true },
-      { id: "list_greetings", kind: "api_contract", capabilityId: "cap_list_greetings", mutating: false, mandatory: true },
-      { id: "update_greeting", kind: "api_contract", capabilityId: "cap_update_greeting", mutating: true, mandatory: true },
+      { id: "create_greeting", kind: "api", capabilityId: "cap_create_greeting", mutating: true, mandatory: true },
+      { id: "get_created_greeting", kind: "api", capabilityId: "cap_get_greeting", mutating: false, mandatory: true },
+      { id: "list_greetings", kind: "api", capabilityId: "cap_list_greetings", mutating: false, mandatory: true },
+      { id: "update_greeting", kind: "api", capabilityId: "cap_update_greeting", mutating: true, mandatory: true },
       { id: "invalid_create_returns_4xx", kind: "api_negative", capabilityId: "cap_create_greeting", expectStatusClass: 4, expectErrorCode: "cap_create_greeting_invalid_request", mutating: false, mandatory: true },
       { id: "get_unknown_greeting_not_found", kind: "api_negative", capabilityId: "cap_get_greeting", expectStatus: 404, expectErrorCode: "cap_get_greeting_not_found", mutating: false, mandatory: true }
     ]

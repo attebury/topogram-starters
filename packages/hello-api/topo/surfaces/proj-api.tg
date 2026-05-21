@@ -1,7 +1,7 @@
-projection proj_api {
+surface proj_api {
   name "Hello API"
   description "HTTP API realization for the hello API starter"
-  type api_contract
+  type api
 
   realizes [cap_get_hello]
   outputs [request_contracts, response_contracts, endpoints]

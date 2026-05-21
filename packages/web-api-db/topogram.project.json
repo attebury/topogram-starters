@@ -11,7 +11,7 @@
     "runtimes": [
       {
         "id": "app_api",
-        "projection": "proj_api",
+        "surface": "proj_api",
         "generator": {
           "id": "@topogram/generator-hono-api",
           "version": "1",
@@ -23,19 +23,19 @@
       },
       {
         "id": "app_sveltekit",
-        "projection": "proj_web_surface",
+        "surface": "proj_web",
         "generator": {
           "id": "@topogram/generator-sveltekit-web",
           "version": "1",
           "package": "@topogram/generator-sveltekit-web"
         },
         "port": 5173,
-        "kind": "web_surface",
+        "kind": "web",
         "uses_api": "app_api"
       },
       {
         "id": "app_postgres",
-        "projection": "proj_db_postgres",
+        "surface": "proj_db_postgres",
         "generator": {
           "id": "@topogram/generator-postgres-db",
           "version": "1",

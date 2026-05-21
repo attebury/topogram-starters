@@ -5,7 +5,7 @@
       "id": "hello-web",
       "kind": "template",
       "package": "@topogram/starter-hello-web",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture hello-web starter entry.",
       "tags": [
         "fixture",
@@ -21,7 +21,7 @@
       "id": "hello-api",
       "kind": "template",
       "package": "@topogram/starter-hello-api",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture hello-api starter entry.",
       "tags": [
         "fixture",
@@ -37,7 +37,7 @@
       "id": "hello-db",
       "kind": "template",
       "package": "@topogram/starter-hello-db",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture hello-db starter entry.",
       "tags": [
         "fixture",
@@ -53,7 +53,7 @@
       "id": "hello-ios",
       "kind": "template",
       "package": "@topogram/starter-hello-ios",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture hello-ios starter entry.",
       "tags": [
         "fixture",
@@ -69,7 +69,7 @@
       "id": "web-api",
       "kind": "template",
       "package": "@topogram/starter-web-api",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture web-api starter entry.",
       "tags": [
         "fixture",
@@ -86,7 +86,7 @@
       "id": "web-api-db",
       "kind": "template",
       "package": "@topogram/starter-web-api-db",
-      "defaultVersion": "0.1.14",
+      "defaultVersion": "0.1.15",
       "description": "Fixture web-api-db starter entry.",
       "tags": [
         "fixture",
